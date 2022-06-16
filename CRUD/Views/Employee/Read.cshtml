@@ -1,0 +1,28 @@
+﻿@model List<CRUD.Models.Employee>
+
+<table class = "table" >
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Surname</th>
+			<th>Position</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model){
+			<tr>
+				<td>@item.Name</td>
+				<td>@item.Surname</td>
+				<td>@item.Position</td>
+				<td>
+					<ul class = "list-inline m-0" >
+						<li class = "list-inline-item" >
+							<a onclick = "return confirm('Are you sure to delete this Employee');"asp-controller = "Employee" asp-action = "Delete" asp-route-id ="@item.ID" class="btn btn-danger btn-block rounded-2" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash">Delete</i></a>
+							<a asp-action = "Details" asp-controller = "Employee" asp-route-id = "@item.ID" class="btn btn-success btn-block rounded-2" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash">Details</i></a>
+						</li>
+					</ul>
+				</td>
+			</tr>			
+		}
+	</tbody>
+</table>
